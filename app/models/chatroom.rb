@@ -4,6 +4,6 @@ class Chatroom < ApplicationRecord
   has_many :messages
 
   def recent_messages
-    messages.order(created_at: :asc).limit(100).reverse
+    messages.order(created_at: :desc).limit(100).reverse
   end
 end
