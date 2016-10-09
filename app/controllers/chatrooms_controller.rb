@@ -25,7 +25,7 @@ class ChatroomsController < ApplicationController
   # POST /chatrooms.json
   def create
     @chatroom = Chatroom.new(chatroom_params)
-
+    @chatroom.users << current_user
     respond_to do |format|
       if @chatroom.save
         format.html { redirect_to @chatroom, notice: 'Chatroom was successfully created.' }
